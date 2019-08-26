@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 module "aggregated_assume_policy" {
-  source           = "git::https://github.com/cloudposse/terraform-aws-iam-policy-document-aggregator.git"
+  source           = "git::https://github.com/rverma-nikiai/terraform-aws-iam-policy-document-aggregator.git"
   source_documents = ["${data.aws_iam_policy_document.assume_role.*.json}"]
 }
 
@@ -37,7 +37,7 @@ resource "aws_iam_role" "default" {
 }
 
 module "aggregated_policy" {
-  source           = "git::https://github.com/cloudposse/terraform-aws-iam-policy-document-aggregator.git"
+  source           = "git::https://github.com/rverma-nikiai/terraform-aws-iam-policy-document-aggregator.git"
   source_documents = ["${var.policy_documents}"]
 }
 
